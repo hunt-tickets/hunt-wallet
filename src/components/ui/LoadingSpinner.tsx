@@ -17,7 +17,7 @@ const spinVariants = {
     transition: {
       duration: 1,
       repeat: Infinity,
-      ease: "linear"
+      ease: "linear" as const
     }
   }
 }

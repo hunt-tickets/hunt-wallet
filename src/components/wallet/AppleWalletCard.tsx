@@ -65,11 +65,10 @@ export const AppleWalletCard = ({
   
   return (
     <motion.div
-      variants={isActive ? cardHoverVariants : cardVariants}
-      initial="inactive"
-      animate={isActive ? "active" : "inactive"}
-      whileHover={isActive ? "hover" : undefined}
-      whileTap={isActive ? "tap" : undefined}
+      initial={{ scale: 0.85, opacity: 0.6 }}
+      animate={isActive ? { scale: 1, opacity: 1 } : { scale: 0.85, opacity: 0.6 }}
+      whileHover={isActive ? { scale: 1.02, y: -4 } : undefined}
+      whileTap={isActive ? { scale: 0.98 } : undefined}
       className={`
         bg-gradient-to-br ${gradientColors}
         border border-white/20 
@@ -84,14 +83,14 @@ export const AppleWalletCard = ({
       `}
     >
       <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         className="relative z-10"
       >
         {/* Header with Event Logo & Status */}
         <motion.div 
-          variants={staggerChild}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="p-6 border-b border-white/5 relative"
         >
           <div className="flex justify-between items-start">
@@ -119,7 +118,8 @@ export const AppleWalletCard = ({
 
         {/* Event Info */}
         <motion.div 
-          variants={staggerChild}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="px-6 py-4 space-y-3"
         >
           <div className="text-white text-xl font-semibold">
@@ -135,7 +135,8 @@ export const AppleWalletCard = ({
 
         {/* Seat Details */}
         <motion.div 
-          variants={staggerChild}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="px-6 py-3 bg-white/[0.02] border-y border-white/5"
         >
           <div className="text-white font-medium text-center text-lg">
@@ -158,7 +159,8 @@ export const AppleWalletCard = ({
 
         {/* QR Code */}
         <motion.div 
-          variants={staggerChild}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="flex justify-center py-8 bg-white/[0.03]"
         >
           <QRCodeComponent ticket={ticket} size={120} />
@@ -166,7 +168,8 @@ export const AppleWalletCard = ({
 
         {/* Barcode Footer */}
         <motion.div 
-          variants={staggerChild}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="h-12 bg-white/[0.05] flex items-center justify-center"
         >
           <BarcodeStrip ticketId={ticket.id} />
@@ -174,7 +177,8 @@ export const AppleWalletCard = ({
 
         {/* Order ID */}
         <motion.div 
-          variants={staggerChild}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="px-6 py-2 text-center"
         >
           <div className="text-white/40 text-xs">

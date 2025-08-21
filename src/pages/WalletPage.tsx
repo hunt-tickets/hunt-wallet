@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Layout } from '../components/layout/Layout'
-import { HeroSection } from '../components/wallet/HeroSection'
+import { HeroSection } from '../components/ui/HeroSection'
+import { WalletContainer } from '../components/wallet/WalletContainer'
 import { ActionButtons } from '../components/wallet/ActionButtons'
+import { TicketFeatures } from '../components/wallet/TicketFeatures'
 import { TicketModal } from '../components/wallet/TicketModal'
 import { SupportContact } from '../components/wallet/SupportContact'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
@@ -77,30 +79,32 @@ export const WalletPage = () => {
         variants={pageVariants}
         initial="initial"
         animate="animate"
-        className="container mx-auto px-4 py-8 max-w-2xl h-full flex flex-col justify-center"
+        className="min-h-screen flex flex-col justify-center items-center px-4 py-12"
       >
         {/* Hero Section */}
-        <HeroSection 
-          eventName={eventInfo?.name}
-          className="mb-8"
-        />
+        <HeroSection />
 
-        {/* Action Buttons */}
-        <ActionButtons
-          tickets={tickets}
-          onViewTickets={() => setShowTicketsModal(true)}
-          onContactSupport={() => setShowSupportModal(true)}
-          className="mb-12"
-        />
+        {/* Main Wallet Container */}
+        <WalletContainer className="mt-8">
+          {/* Ticket Features Grid */}
+          <TicketFeatures className="mb-8" />
 
-        {/* Development info */}
-        {error && (
-          <div className="text-center mt-8">
-            <p className="text-hunt-text-secondary text-xs">
-              ⚠️ Modo desarrollo: Usando datos de prueba
-            </p>
-          </div>
-        )}
+          {/* Action Buttons */}
+          <ActionButtons
+            tickets={tickets}
+            onViewTickets={() => setShowTicketsModal(true)}
+            onContactSupport={() => setShowSupportModal(true)}
+          />
+
+          {/* Development info */}
+          {error && (
+            <div className="text-center mt-6 pt-6 border-t border-white/5">
+              <p className="text-white/40 text-xs">
+                ⚠️ Modo desarrollo: Usando datos de prueba
+              </p>
+            </div>
+          )}
+        </WalletContainer>
       </motion.div>
 
       {/* Modals */}

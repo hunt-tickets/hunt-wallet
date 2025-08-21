@@ -27,7 +27,7 @@ export const MobileTicketCarousel = ({ tickets, className = '' }: MobileTicketCa
     )
   }
 
-  const handleDragEnd = (event: any, info: any) => {
+  const handleDragEnd = (_event: any, info: any) => {
     const offset = info.offset.x
     const velocity = info.velocity.x
     

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Download, Eye, MessageCircle, Loader2 } from 'lucide-react'
 import type { TicketData } from '../../types'
 import { usePDFDownload } from '../../hooks'
 
@@ -17,7 +18,7 @@ const buttonVariants = {
     y: 0,
     transition: {
       duration: 0.4,
-      ease: "easeOut"
+      ease: [0.6, -0.05, 0.01, 0.99] as const
     }
   },
   hover: { 
@@ -67,34 +68,41 @@ export const ActionButtons = ({
       variants={staggerContainer}
       initial="initial"
       animate="animate"
-      className={`space-y-4 max-w-md mx-auto ${className}`}
+      className={`space-y-3 ${className}`}
     >
       {/* Download PDF Button - Primary CTA */}
       <motion.button
-        variants={buttonVariants}
-        whileHover="hover"
-        whileTap="tap"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.02, y: -2 }}
+        whileTap={{ scale: 0.98 }}
         onClick={handleDownloadPDF}
         disabled={downloading || tickets.length === 0}
         className="
           w-full py-4 px-6 
-          bg-hunt-blue hover:bg-hunt-blue/90
-          text-white font-medium text-lg
-          rounded-xl 
-          shadow-lg shadow-hunt-blue/20
-          transition-all duration-200
+          bg-white/10 backdrop-blur-xl border border-white/20
+          hover:bg-white/15 hover:border-white/30
+          text-white font-medium text-base
+          rounded-2xl 
+          shadow-lg shadow-black/10
+          transition-all duration-300
           disabled:opacity-50 disabled:cursor-not-allowed
           flex items-center justify-center gap-3
+          relative overflow-hidden
+          before:absolute before:inset-0 
+          before:bg-gradient-to-r before:from-hunt-blue/20 before:to-transparent 
+          before:opacity-0 hover:before:opacity-100 before:transition-opacity
         "
       >
         {downloading ? (
           <>
-            <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent" />
+            <Loader2 className="h-5 w-5 animate-spin" />
             Preparando descarga...
           </>
         ) : (
           <>
-            📥 DESCARGAR PDF
+            <Download className="h-5 w-5" />
+            DESCARGAR PDF
           </>
         )}
       </motion.button>
@@ -107,47 +115,61 @@ export const ActionButtons = ({
 
       {/* View Tickets Button */}
       <motion.button
-        variants={buttonVariants}
-        whileHover="hover"
-        whileTap="tap"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.02, y: -2 }}
+        whileTap={{ scale: 0.98 }}
         onClick={onViewTickets}
         className="
           w-full py-4 px-6
-          bg-white/5 backdrop-blur-sm border border-white/20
-          hover:bg-white/10 transition-all duration-200
-          text-white font-medium rounded-xl
+          bg-white/5 backdrop-blur-xl border border-white/15
+          hover:bg-white/10 hover:border-white/25
+          text-white font-medium rounded-2xl
           flex items-center justify-center gap-3
+          transition-all duration-300
+          relative overflow-hidden
+          before:absolute before:inset-0 
+          before:bg-gradient-to-r before:from-white/5 before:to-transparent 
+          before:opacity-0 hover:before:opacity-100 before:transition-opacity
         "
       >
-        🎫 VER ENTRADAS ({tickets.length})
+        <Eye className="h-5 w-5" />
+        VER ENTRADAS ({tickets.length})
       </motion.button>
 
       {/* Support Button */}
       <motion.button
-        variants={buttonVariants}
-        whileHover="hover"
-        whileTap="tap"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.02, y: -2 }}
+        whileTap={{ scale: 0.98 }}
         onClick={onContactSupport}
         className="
           w-full py-4 px-6
-          bg-white/5 backdrop-blur-sm border border-white/20
-          hover:bg-white/10 transition-all duration-200
-          text-white font-medium rounded-xl
+          bg-white/5 backdrop-blur-xl border border-white/15
+          hover:bg-white/10 hover:border-white/25
+          text-white font-medium rounded-2xl
           flex items-center justify-center gap-3
+          transition-all duration-300
+          relative overflow-hidden
+          before:absolute before:inset-0 
+          before:bg-gradient-to-r before:from-white/5 before:to-transparent 
+          before:opacity-0 hover:before:opacity-100 before:transition-opacity
         "
       >
-        💬 SOPORTE 24/7
+        <MessageCircle className="h-5 w-5" />
+        SOPORTE 24/7
       </motion.button>
 
       {/* Footer info */}
       <motion.div
         variants={buttonVariants}
-        className="text-center mt-8"
+        className="text-center mt-6 pt-4 border-t border-white/5"
       >
-        <p className="text-hunt-text-secondary text-sm">
+        <p className="text-white/40 text-sm font-medium">
           Hunt Tickets © 2024
         </p>
-        <p className="text-hunt-text-secondary text-xs mt-1">
+        <p className="text-white/30 text-xs mt-1">
           Revisa tu email para más detalles
         </p>
       </motion.div>

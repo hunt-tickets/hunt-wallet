@@ -73,7 +73,7 @@ const Box = ({ position, rotation }: BoxProps) => {
 const AnimatedBoxes = () => {
     const groupRef = useRef<any>();
 
-    useFrame((state, delta) => {
+    useFrame((_state, delta) => {
         if (groupRef.current) {
             groupRef.current.rotation.x += delta * 0.02; // Slower rotation for subtlety
             groupRef.current.rotation.y += delta * 0.01;
