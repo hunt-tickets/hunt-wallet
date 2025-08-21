@@ -1,7 +1,6 @@
 import { type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { Scene } from '../ui/hero-section'
-import { ParticleBackground } from '../ui/ParticleBackground'
 
 interface LayoutProps {
   children: ReactNode
@@ -15,7 +14,7 @@ const layoutVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: [0.6, -0.05, 0.01, 0.99]
+      ease: "easeOut"
     }
   },
   exit: { 

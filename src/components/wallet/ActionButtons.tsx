@@ -18,7 +18,7 @@ const buttonVariants = {
     y: 0,
     transition: {
       duration: 0.4,
-      ease: [0.6, -0.05, 0.01, 0.99] as const
+      ease: "easeOut"
     }
   },
   hover: { 

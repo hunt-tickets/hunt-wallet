@@ -10,51 +10,6 @@ interface AppleWalletCardProps {
   className?: string
 }
 
-const cardVariants = {
-  active: {
-    scale: 1,
-    opacity: 1,
-    rotateY: 0,
-    z: 0,
-    transition: { duration: 0.4, ease: "easeOut" }
-  },
-  inactive: {
-    scale: 0.85,
-    opacity: 0.6,
-    rotateY: -5,
-    z: -50,
-    transition: { duration: 0.4, ease: "easeOut" }
-  }
-}
-
-const cardHoverVariants = {
-  hover: {
-    scale: 1.02,
-    y: -4,
-    boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-    transition: { duration: 0.2 }
-  },
-  tap: {
-    scale: 0.98,
-    transition: { duration: 0.1 }
-  }
-}
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-}
-
-const staggerChild = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 }
-}
 
 export const AppleWalletCard = ({ 
   ticket, 
