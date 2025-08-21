@@ -14,7 +14,7 @@ export default defineConfig({
     port: process.env.PORT ? parseInt(process.env.PORT) : 4173,
     host: "0.0.0.0",
     strictPort: false,
-    allowedHosts: "all",
+    allowedHosts: ["hunt-wallet-production.up.railway.app", "localhost", ".railway.app"],
   },
   server: {
     host: "0.0.0.0",
