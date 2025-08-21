@@ -1,11 +1,11 @@
 import { type ReactNode } from 'react'
 import { motion } from 'framer-motion'
-import { Scene } from '../ui/hero-section'
+import { AuroraBackground } from '../ui/aurora-background'
 
 interface LayoutProps {
   children: ReactNode
   className?: string
-  showBackground3D?: boolean
+  showAurora?: boolean
 }
 
 const layoutVariants = {
@@ -25,7 +25,23 @@ const layoutVariants = {
   }
 }
 
-export const Layout = ({ children, className = '', showBackground3D = true }: LayoutProps) => {
+export const Layout = ({ children, className = '', showAurora = true }: LayoutProps) => {
+  if (showAurora) {
+    return (
+      <AuroraBackground className={`dark ${className}`}>
+        <motion.div 
+          variants={layoutVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="relative z-10 w-full h-full overflow-y-auto"
+        >
+          {children}
+        </motion.div>
+      </AuroraBackground>
+    )
+  }
+
   return (
     <motion.div 
       variants={layoutVariants}
@@ -41,13 +57,6 @@ export const Layout = ({ children, className = '', showBackground3D = true }: La
         ${className}
       `}
     >
-      {/* 3D Animated Background */}
-      {showBackground3D && (
-        <div className="absolute inset-0 w-full h-full z-0" style={{ width: '100%', height: '100%' }}>
-          <Scene />
-        </div>
-      )}
-      
       {/* Subtle gradient overlay for better contrast */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10 z-[1]" />
       
