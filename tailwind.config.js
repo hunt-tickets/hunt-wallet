@@ -38,6 +38,13 @@ module.exports = {
           },
         },
       },
+      backgroundSize: {
+        '200': '200% 100%',
+      },
+      backgroundPosition: {
+        'pos-0': '0% 50%',
+        'pos-100': '100% 50%',
+      },
       backdropBlur: {
         'xs': '2px',
       },

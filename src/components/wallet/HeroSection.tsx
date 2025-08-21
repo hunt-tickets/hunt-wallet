@@ -44,10 +44,12 @@ export const HeroSection = ({ className = '' }: Omit<HeroSectionProps, 'eventNam
         variants={logoVariants}
         className="mb-8"
       >
-        <div className="inline-flex items-center justify-center w-20 h-20 mb-4 rounded-2xl bg-gradient-to-br from-hunt-blue to-hunt-purple">
-          <span className="text-white text-2xl font-bold">H</span>
+        <div className="relative inline-flex items-center justify-center w-20 h-20 mb-4 rounded-2xl bg-gradient-to-br from-hunt-blue via-hunt-purple to-hunt-blue overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+          <span className="text-white text-2xl font-bold relative z-10">H</span>
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-hunt-blue/50 to-hunt-purple/50 blur-xl scale-150 opacity-30"></div>
         </div>
-        <h1 className="text-2xl font-semibold text-hunt-text-primary">
+        <h1 className="text-2xl font-bold text-hunt-text-primary bg-gradient-to-r from-hunt-blue via-hunt-purple to-hunt-blue bg-clip-text text-transparent">
           HUNT TICKETS
         </h1>
       </motion.div>

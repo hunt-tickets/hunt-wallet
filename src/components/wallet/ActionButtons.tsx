@@ -82,18 +82,21 @@ export const ActionButtons = ({
         disabled={downloading || tickets.length === 0}
         className="
           w-full py-4 px-6 
-          bg-white/10 backdrop-blur-xl border border-white/20
-          hover:bg-white/15 hover:border-white/30
-          text-white font-medium text-base
+          bg-gradient-to-r from-hunt-blue via-hunt-purple to-hunt-blue
+          bg-size-200 bg-pos-0 hover:bg-pos-100
+          border border-hunt-blue/30 hover:border-hunt-blue/50
+          text-white font-bold text-base
           rounded-2xl 
-          shadow-lg shadow-black/10
-          transition-all duration-300
+          shadow-lg shadow-hunt-blue/20
+          transition-all duration-500
           disabled:opacity-50 disabled:cursor-not-allowed
           flex items-center justify-center gap-3
           relative overflow-hidden
           before:absolute before:inset-0 
-          before:bg-gradient-to-r before:from-hunt-blue/20 before:to-transparent 
-          before:opacity-0 hover:before:opacity-100 before:transition-opacity
+          before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent
+          before:translate-x-[-100%] hover:before:translate-x-[100%]
+          before:transition-transform before:duration-700
+          backdrop-blur-xl
         "
       >
         {downloading ? (
@@ -124,15 +127,19 @@ export const ActionButtons = ({
         onClick={onViewTickets}
         className="
           w-full py-4 px-6
-          bg-white/5 backdrop-blur-xl border border-white/15
-          hover:bg-white/10 hover:border-white/25
+          bg-gradient-to-r from-hunt-green/20 to-hunt-green/10
+          border border-hunt-green/30 hover:border-hunt-green/50
+          hover:bg-gradient-to-r hover:from-hunt-green/30 hover:to-hunt-green/20
           text-white font-medium rounded-2xl
           flex items-center justify-center gap-3
           transition-all duration-300
           relative overflow-hidden
+          backdrop-blur-xl
+          shadow-lg shadow-hunt-green/10
           before:absolute before:inset-0 
-          before:bg-gradient-to-r before:from-white/5 before:to-transparent 
-          before:opacity-0 hover:before:opacity-100 before:transition-opacity
+          before:bg-gradient-to-r before:from-transparent before:via-hunt-green/20 before:to-transparent 
+          before:translate-x-[-100%] hover:before:translate-x-[100%]
+          before:transition-transform before:duration-500
         "
       >
         <Eye className="h-5 w-5" />
@@ -148,15 +155,19 @@ export const ActionButtons = ({
         onClick={onViewOrder}
         className="
           w-full py-4 px-6
-          bg-white/5 backdrop-blur-xl border border-white/15
-          hover:bg-white/10 hover:border-white/25
+          bg-gradient-to-r from-hunt-yellow/20 to-hunt-yellow/10
+          border border-hunt-yellow/30 hover:border-hunt-yellow/50
+          hover:bg-gradient-to-r hover:from-hunt-yellow/30 hover:to-hunt-yellow/20
           text-white font-medium rounded-2xl
           flex items-center justify-center gap-3
           transition-all duration-300
           relative overflow-hidden
+          backdrop-blur-xl
+          shadow-lg shadow-hunt-yellow/10
           before:absolute before:inset-0 
-          before:bg-gradient-to-r before:from-white/5 before:to-transparent 
-          before:opacity-0 hover:before:opacity-100 before:transition-opacity
+          before:bg-gradient-to-r before:from-transparent before:via-hunt-yellow/20 before:to-transparent 
+          before:translate-x-[-100%] hover:before:translate-x-[100%]
+          before:transition-transform before:duration-500
         "
       >
         <Receipt className="h-5 w-5" />
@@ -172,15 +183,19 @@ export const ActionButtons = ({
         onClick={onContactSupport}
         className="
           w-full py-4 px-6
-          bg-white/5 backdrop-blur-xl border border-white/15
-          hover:bg-white/10 hover:border-white/25
+          bg-gradient-to-r from-hunt-red/20 to-hunt-red/10
+          border border-hunt-red/30 hover:border-hunt-red/50
+          hover:bg-gradient-to-r hover:from-hunt-red/30 hover:to-hunt-red/20
           text-white font-medium rounded-2xl
           flex items-center justify-center gap-3
           transition-all duration-300
           relative overflow-hidden
+          backdrop-blur-xl
+          shadow-lg shadow-hunt-red/10
           before:absolute before:inset-0 
-          before:bg-gradient-to-r before:from-white/5 before:to-transparent 
-          before:opacity-0 hover:before:opacity-100 before:transition-opacity
+          before:bg-gradient-to-r before:from-transparent before:via-hunt-red/20 before:to-transparent 
+          before:translate-x-[-100%] hover:before:translate-x-[100%]
+          before:transition-transform before:duration-500
         "
       >
         <MessageCircle className="h-5 w-5" />
