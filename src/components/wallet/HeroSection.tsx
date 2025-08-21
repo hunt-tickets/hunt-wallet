@@ -30,20 +30,8 @@ const logoVariants = {
   }
 }
 
-const textVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      delay: 0.4,
-      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
-    }
-  }
-}
 
-export const HeroSection = ({ eventName, className = '' }: HeroSectionProps) => {
+export const HeroSection = ({ className = '' }: Omit<HeroSectionProps, 'eventName'>) => {
   return (
     <motion.div
       variants={heroVariants}
