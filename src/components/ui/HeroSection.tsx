@@ -71,34 +71,6 @@ export const HeroSection = () => {
         </span>
       </motion.h1>
 
-      {/* Subtitle */}
-      <motion.p 
-        className="
-          text-lg md:text-xl
-          text-white/70
-          max-w-2xl mx-auto
-          leading-relaxed
-        "
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
-        Accede a tus entradas digitales de forma segura y elegante.
-        <br />
-        Todo lo que necesitas en tu billetera digital.
-      </motion.p>
-
-      {/* Decorative line */}
-      <motion.div
-        className="
-          w-24 h-1 
-          bg-gradient-to-r from-hunt-blue to-hunt-purple
-          rounded-full mx-auto mt-8
-        "
-        initial={{ width: 0 }}
-        animate={{ width: 96 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-      />
     </motion.div>
   )
 }

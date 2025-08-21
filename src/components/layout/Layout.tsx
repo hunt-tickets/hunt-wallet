@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { AuroraBackground } from '../ui/aurora-background'
+import { ThemeToggle } from '../ui/theme-toggle'
 
 interface LayoutProps {
   children: ReactNode
@@ -28,7 +29,12 @@ const layoutVariants = {
 export const Layout = ({ children, className = '', showAurora = true }: LayoutProps) => {
   if (showAurora) {
     return (
-      <AuroraBackground className={`dark ${className}`}>
+      <AuroraBackground className={className}>
+        {/* Theme Toggle - Fixed position */}
+        <div className="fixed top-6 right-6 z-50">
+          <ThemeToggle />
+        </div>
+        
         <motion.div 
           variants={layoutVariants}
           initial="initial"
@@ -57,6 +63,11 @@ export const Layout = ({ children, className = '', showAurora = true }: LayoutPr
         ${className}
       `}
     >
+      {/* Theme Toggle - Fixed position */}
+      <div className="fixed top-6 right-6 z-50">
+        <ThemeToggle />
+      </div>
+      
       {/* Subtle gradient overlay for better contrast */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10 z-[1]" />
       

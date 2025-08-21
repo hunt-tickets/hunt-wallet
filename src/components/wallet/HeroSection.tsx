@@ -64,20 +64,6 @@ export const HeroSection = ({ eventName, className = '' }: HeroSectionProps) => 
         </h1>
       </motion.div>
 
-      {/* Welcome Message */}
-      <motion.div
-        variants={textVariants}
-        className="space-y-2"
-      >
-        <h2 className="text-xl font-medium text-hunt-text-primary">
-          ✨ ¡Gracias por tu compra!
-        </h2>
-        {eventName && (
-          <p className="text-hunt-text-secondary">
-            Tus entradas para <span className="text-hunt-text-tertiary font-medium">{eventName}</span> están listas
-          </p>
-        )}
-      </motion.div>
     </motion.div>
   )
 }

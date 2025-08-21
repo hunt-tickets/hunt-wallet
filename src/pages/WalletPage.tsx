@@ -86,24 +86,12 @@ export const WalletPage = () => {
 
         {/* Main Wallet Container */}
         <WalletContainer className="mt-8">
-          {/* Ticket Features Grid */}
-          <TicketFeatures className="mb-8" />
-
           {/* Action Buttons */}
           <ActionButtons
             tickets={tickets}
             onViewTickets={() => setShowTicketsModal(true)}
             onContactSupport={() => setShowSupportModal(true)}
           />
-
-          {/* Development info */}
-          {error && (
-            <div className="text-center mt-6 pt-6 border-t border-white/5">
-              <p className="text-white/40 text-xs">
-                ⚠️ Modo desarrollo: Usando datos de prueba
-              </p>
-            </div>
-          )}
         </WalletContainer>
       </motion.div>
 
