@@ -58,14 +58,17 @@ export const ActionButtons = ({
         disabled={downloading || tickets.length === 0}
         className="
           w-full py-4 px-6 
-          bg-white hover:bg-gray-100
-          border border-gray-300
-          text-black font-semibold text-base
+          bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-800
+          border border-gray-600 hover:border-gray-500
+          text-white font-bold text-base
           rounded-2xl 
-          shadow-lg shadow-black/10
+          shadow-xl shadow-black/30
           transition-all duration-300
           disabled:opacity-50 disabled:cursor-not-allowed
           flex items-center justify-center gap-3
+          relative overflow-hidden
+          before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent
+          before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700
         "
       >
         {downloading ? (
@@ -96,12 +99,13 @@ export const ActionButtons = ({
         onClick={onViewTickets}
         className="
           w-full py-4 px-6
-          bg-black hover:bg-gray-800
-          border border-gray-700
-          text-white font-semibold rounded-2xl
+          bg-white hover:bg-gray-50
+          border-2 border-gray-300 hover:border-gray-400
+          text-gray-900 font-semibold rounded-2xl
           flex items-center justify-center gap-3
           transition-all duration-300
-          shadow-lg shadow-black/20
+          shadow-lg shadow-gray-200/50
+          hover:shadow-xl hover:shadow-gray-300/50
         "
       >
         <Eye className="h-5 w-5" />
@@ -117,12 +121,13 @@ export const ActionButtons = ({
         onClick={onViewOrder}
         className="
           w-full py-4 px-6
-          bg-white hover:bg-gray-100
-          border border-gray-300
-          text-black font-semibold rounded-2xl
+          bg-gradient-to-r from-gray-100 to-white hover:from-white hover:to-gray-50
+          border-2 border-gray-200 hover:border-gray-300
+          text-gray-800 font-semibold rounded-2xl
           flex items-center justify-center gap-3
           transition-all duration-300
-          shadow-lg shadow-black/10
+          shadow-lg shadow-gray-100/50
+          hover:shadow-xl hover:shadow-gray-200/50
         "
       >
         <Receipt className="h-5 w-5" />
@@ -138,12 +143,13 @@ export const ActionButtons = ({
         onClick={onContactSupport}
         className="
           w-full py-4 px-6
-          bg-black hover:bg-gray-800
-          border border-gray-700
+          bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800
+          border-2 border-gray-600 hover:border-gray-500
           text-white font-semibold rounded-2xl
           flex items-center justify-center gap-3
           transition-all duration-300
-          shadow-lg shadow-black/20
+          shadow-lg shadow-gray-800/30
+          hover:shadow-xl hover:shadow-gray-700/40
         "
       >
         <MessageCircle className="h-5 w-5" />

@@ -2,6 +2,7 @@ import { type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { AuroraBackground } from '../ui/aurora-background'
 import { ThemeToggle } from '../ui/theme-toggle'
+import { HelpButton } from '../ui/help-button'
 
 interface LayoutProps {
   children: ReactNode
@@ -37,7 +38,10 @@ export const Layout = ({ children, className = '', showAurora = true }: LayoutPr
             alt="Hunt Tickets"
             className="h-8 w-auto"
           />
-          <ThemeToggle />
+          <div className="flex items-center gap-3">
+            <HelpButton />
+            <ThemeToggle />
+          </div>
         </div>
         
         <motion.div 
@@ -75,7 +79,10 @@ export const Layout = ({ children, className = '', showAurora = true }: LayoutPr
           alt="Hunt Tickets"
           className="h-8 w-auto"
         />
-        <ThemeToggle />
+        <div className="flex items-center gap-3">
+          <HelpButton />
+          <ThemeToggle />
+        </div>
       </div>
       
       {/* Subtle gradient overlay for better contrast */}
