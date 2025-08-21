@@ -73,7 +73,7 @@ const Box = ({ position, rotation }: BoxProps) => {
 const AnimatedBoxes = () => {
     const groupRef = useRef<any>();
 
-    useFrame((state, delta) => {
+    useFrame((state: any, delta: number) => {
         if (groupRef.current) {
             groupRef.current.rotation.x += delta * 0.02; // Slower rotation for subtlety
             groupRef.current.rotation.y += delta * 0.01;
@@ -118,7 +118,7 @@ const SimpleScene = () => {
 
 export const Scene = () => {
     const [cameraPosition] = React.useState<[number, number, number]>([3, 3, 15]);
-    const [use3D, setUse3D] = React.useState(true);
+    const [use3D] = React.useState(true);
 
     // Fallback to simple scene if 3D fails
     if (!use3D) {

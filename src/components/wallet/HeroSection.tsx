@@ -12,7 +12,7 @@ const heroVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
     }
   }
 }
@@ -25,7 +25,7 @@ const logoVariants = {
     transition: {
       duration: 0.5,
       delay: 0.2,
-      ease: "easeOut"
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
     }
   }
 }
@@ -38,7 +38,7 @@ const textVariants = {
     transition: {
       duration: 0.4,
       delay: 0.4,
-      ease: "easeOut"
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
     }
   }
 }

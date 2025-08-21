@@ -14,7 +14,7 @@ const qrVariants = {
     scale: 1, 
     rotate: 0,
     transition: {
-      type: "spring",
+      type: "spring" as "spring",
       stiffness: 200,
       delay: 0.5
     }
@@ -24,7 +24,7 @@ const qrVariants = {
     transition: {
       duration: 2,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.4, 0, 0.6, 1] as [number, number, number, number]
     }
   }
 }

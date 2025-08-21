@@ -30,7 +30,7 @@ const modalVariants = {
     scale: 1, 
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as "spring",
       stiffness: 300,
       damping: 25,
       duration: 0.4

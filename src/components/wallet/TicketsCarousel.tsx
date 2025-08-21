@@ -15,7 +15,7 @@ const carouselVariants = {
     x: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
     }
   }
 }
@@ -58,7 +58,7 @@ export const TicketsCarousel = ({ tickets, className = '' }: TicketsCarouselProp
         <motion.div 
           className="flex gap-4"
           animate={{ x: -currentIndex * 320 }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          transition={{ type: "spring" as "spring", stiffness: 300, damping: 30 }}
         >
           {tickets.map((ticket, index) => (
             <div
