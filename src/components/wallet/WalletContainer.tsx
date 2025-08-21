@@ -25,7 +25,7 @@ export const WalletContainer = ({ children, className = '' }: WalletContainerPro
       initial="hidden"
       animate="visible"
       className={`
-        max-w-md mx-auto
+        max-w-lg mx-auto w-full
         bg-white/5 backdrop-blur-2xl
         border border-white/10
         rounded-3xl

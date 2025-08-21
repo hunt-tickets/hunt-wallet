@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Layout } from '../components/layout/Layout'
-import { HeroSection } from '../components/ui/HeroSection'
+import { HeroSection } from '../components/wallet/HeroSection'
 import { WalletContainer } from '../components/wallet/WalletContainer'
 import { ActionButtons } from '../components/wallet/ActionButtons'
 import { TicketModal } from '../components/wallet/TicketModal'
 import { SupportContact } from '../components/wallet/SupportContact'
+import { OrderModal } from '../components/wallet/OrderModal'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { useTicketsData, useUrlToken } from '../hooks'
 
@@ -26,6 +27,7 @@ export const WalletPage = () => {
   const { tickets, loading, error, eventInfo } = useTicketsData(token || 'demo-token')
   const [showTicketsModal, setShowTicketsModal] = useState(false)
   const [showSupportModal, setShowSupportModal] = useState(false)
+  const [showOrderModal, setShowOrderModal] = useState(false)
 
   useEffect(() => {
     // Add some meta tags for better mobile experience
@@ -80,16 +82,17 @@ export const WalletPage = () => {
         animate="animate"
         className="min-h-screen flex flex-col justify-center items-center px-4 py-12"
       >
-        {/* Hero Section */}
-        <HeroSection />
-
         {/* Main Wallet Container */}
-        <WalletContainer className="mt-8">
+        <WalletContainer className="w-full max-w-lg mx-auto">
+          {/* Hero Section */}
+          <HeroSection />
+          
           {/* Action Buttons */}
           <ActionButtons
             tickets={tickets}
             onViewTickets={() => setShowTicketsModal(true)}
             onContactSupport={() => setShowSupportModal(true)}
+            onViewOrder={() => setShowOrderModal(true)}
           />
         </WalletContainer>
       </motion.div>
@@ -105,6 +108,11 @@ export const WalletPage = () => {
       <SupportContact
         isOpen={showSupportModal}
         onClose={() => setShowSupportModal(false)}
+      />
+
+      <OrderModal
+        isOpen={showOrderModal}
+        onClose={() => setShowOrderModal(false)}
       />
     </Layout>
   )

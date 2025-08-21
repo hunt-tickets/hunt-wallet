@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Download, Eye, MessageCircle, Loader2 } from 'lucide-react'
+import { Download, Eye, MessageCircle, Loader2, Receipt } from 'lucide-react'
 import type { TicketData } from '../../types'
 import { usePDFDownload } from '../../hooks'
 
@@ -8,6 +8,7 @@ interface ActionButtonsProps {
   tickets: TicketData[]
   onViewTickets: () => void
   onContactSupport: () => void
+  onViewOrder?: () => void
   className?: string
 }
 
@@ -49,6 +50,7 @@ export const ActionButtons = ({
   tickets, 
   onViewTickets, 
   onContactSupport, 
+  onViewOrder,
   className = '' 
 }: ActionButtonsProps) => {
   const { downloading, downloadTickets } = usePDFDownload()
@@ -135,6 +137,30 @@ export const ActionButtons = ({
       >
         <Eye className="h-5 w-5" />
         VER ENTRADAS ({tickets.length})
+      </motion.button>
+
+      {/* View Order Button */}
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.02, y: -2 }}
+        whileTap={{ scale: 0.98 }}
+        onClick={onViewOrder}
+        className="
+          w-full py-4 px-6
+          bg-white/5 backdrop-blur-xl border border-white/15
+          hover:bg-white/10 hover:border-white/25
+          text-white font-medium rounded-2xl
+          flex items-center justify-center gap-3
+          transition-all duration-300
+          relative overflow-hidden
+          before:absolute before:inset-0 
+          before:bg-gradient-to-r before:from-white/5 before:to-transparent 
+          before:opacity-0 hover:before:opacity-100 before:transition-opacity
+        "
+      >
+        <Receipt className="h-5 w-5" />
+        VER MI ORDEN
       </motion.button>
 
       {/* Support Button */}
