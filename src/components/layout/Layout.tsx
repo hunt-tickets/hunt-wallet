@@ -30,8 +30,13 @@ export const Layout = ({ children, className = '', showAurora = true }: LayoutPr
   if (showAurora) {
     return (
       <AuroraBackground className={className}>
-        {/* Theme Toggle - Fixed position */}
-        <div className="fixed top-6 right-6 z-50">
+        {/* Top Navigation */}
+        <div className="fixed top-6 left-6 right-6 z-50 flex justify-between items-center">
+          <img 
+            src="https://db.hunt-tickets.com/storage/v1/object/public/default/logos/white_logo.png" 
+            alt="Hunt Tickets"
+            className="h-8 w-auto"
+          />
           <ThemeToggle />
         </div>
         
@@ -63,8 +68,13 @@ export const Layout = ({ children, className = '', showAurora = true }: LayoutPr
         ${className}
       `}
     >
-      {/* Theme Toggle - Fixed position */}
-      <div className="fixed top-6 right-6 z-50">
+      {/* Top Navigation */}
+      <div className="fixed top-6 left-6 right-6 z-50 flex justify-between items-center">
+        <img 
+          src="https://db.hunt-tickets.com/storage/v1/object/public/default/logos/white_logo.png" 
+          alt="Hunt Tickets"
+          className="h-8 w-auto"
+        />
         <ThemeToggle />
       </div>
       

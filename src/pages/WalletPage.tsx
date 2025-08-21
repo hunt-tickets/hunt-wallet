@@ -95,6 +95,18 @@ export const WalletPage = () => {
             onViewOrder={() => setShowOrderModal(true)}
           />
         </WalletContainer>
+        
+        {/* Powered by footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="mt-8 text-center"
+        >
+          <p className="text-white/40 text-sm">
+            Powered by Hunt Technology
+          </p>
+        </motion.div>
       </motion.div>
 
       {/* Modals */}
