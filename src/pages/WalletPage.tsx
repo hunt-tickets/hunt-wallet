@@ -9,6 +9,7 @@ import { SupportContact } from '../components/wallet/SupportContact'
 import { OrderModal } from '../components/wallet/OrderModal'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { useTicketsData, useUrlToken } from '../hooks'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -23,6 +24,7 @@ const pageVariants = {
 }
 
 export const WalletPage = () => {
+  const { t } = useLanguage()
   const token = useUrlToken()
   const { tickets, loading, error, eventInfo } = useTicketsData(token || 'demo-token')
   const [showTicketsModal, setShowTicketsModal] = useState(false)
@@ -43,7 +45,7 @@ export const WalletPage = () => {
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
             <LoadingSpinner size="lg" className="mx-auto mb-4" />
-            <p className="text-hunt-text-secondary">Cargando tus entradas...</p>
+            <p className="text-hunt-text-secondary">{t('loading.tickets')}</p>
           </div>
         </div>
       </Layout>
@@ -57,16 +59,16 @@ export const WalletPage = () => {
           <div className="text-center max-w-md mx-auto p-6">
             <div className="text-6xl mb-4">😞</div>
             <h2 className="text-xl font-semibold text-hunt-text-primary mb-2">
-              Oops, algo salió mal
+              {t('something.wrong')}
             </h2>
             <p className="text-hunt-text-secondary mb-6">
-              No pudimos cargar tus entradas. Por favor verifica el link o contacta soporte.
+              {t('error.loading')}
             </p>
             <button
               onClick={() => setShowSupportModal(true)}
               className="glass-button px-6 py-3 font-medium"
             >
-              💬 Contactar Soporte
+              💬 {t('contact.support')}
             </button>
           </div>
         </div>
@@ -80,31 +82,33 @@ export const WalletPage = () => {
         variants={pageVariants}
         initial="initial"
         animate="animate"
-        className="min-h-screen flex flex-col justify-center items-center px-4 py-12"
+        className="h-screen flex flex-col justify-between md:justify-center items-center px-4 pt-16 pb-4 md:py-12"
       >
-        {/* Main Wallet Container */}
-        <WalletContainer className="w-full max-w-lg mx-auto">
-          {/* Hero Section */}
-          <HeroSection />
-          
-          {/* Action Buttons */}
-          <ActionButtons
-            tickets={tickets}
-            onViewTickets={() => setShowTicketsModal(true)}
-            onContactSupport={() => setShowSupportModal(true)}
-            onViewOrder={() => setShowOrderModal(true)}
-          />
-        </WalletContainer>
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col justify-center w-full">
+          <WalletContainer className="w-full max-w-lg mx-auto">
+            {/* Hero Section */}
+            <HeroSection />
+            
+            {/* Action Buttons */}
+            <ActionButtons
+              tickets={tickets}
+              onViewTickets={() => setShowTicketsModal(true)}
+              onContactSupport={() => setShowSupportModal(true)}
+              onViewOrder={() => setShowOrderModal(true)}
+            />
+          </WalletContainer>
+        </div>
         
         {/* Powered by footer */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="mt-8 text-center"
+          className="text-center flex-shrink-0"
         >
           <p className="text-white/40 text-sm">
-            Powered by Hunt Technology
+            {t('powered.by')}
           </p>
         </motion.div>
       </motion.div>

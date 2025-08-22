@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Download, Eye, Receipt, MessageCircle, Loader2 } from 'lucide-react'
 import type { TicketData } from '../../../types'
+import { useLanguage } from '../../../contexts/LanguageContext'
 
 interface MinimalistDesignProps {
   tickets: TicketData[]
@@ -19,15 +20,17 @@ export const MinimalistDesign = ({
   downloading,
   onDownload
 }: MinimalistDesignProps) => {
+  const { t } = useLanguage()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="px-6 py-4"
+      className="px-4 py-3 md:px-6 md:py-4"
     >
       {/* Botones Minimalistas Mejorados */}
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {/* Botón Principal - Descargar */}
         <motion.button
           initial={{ opacity: 0, y: 10 }}
@@ -43,7 +46,7 @@ export const MinimalistDesign = ({
           disabled={downloading}
           className="
             group
-            w-full py-5 px-6
+            w-full py-4 px-5 md:py-5 md:px-6
             bg-gradient-to-r from-white/8 to-white/4
             backdrop-blur-sm
             border border-white/30 hover:border-white/50
@@ -67,13 +70,13 @@ export const MinimalistDesign = ({
               <Download className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
             )}
             <span className="font-medium">
-              {downloading ? 'PREPARANDO...' : 'DESCARGAR PDF'}
+              {downloading ? t('preparing') : t('download.pdf')}
             </span>
           </div>
         </motion.button>
 
         {/* Botones Secundarios */}
-        <div className="space-y-3 pt-2">
+        <div className="space-y-2 md:space-y-3 pt-1 md:pt-2">
           {/* Botón Ver Entradas */}
           <motion.button
             initial={{ opacity: 0, y: 10 }}
@@ -88,7 +91,7 @@ export const MinimalistDesign = ({
             onClick={onViewTickets}
             className="
               group
-              w-full py-4 px-6
+              w-full py-3 px-5 md:py-4 md:px-6
               bg-white/3 hover:bg-white/8
               backdrop-blur-sm
               border border-white/15 hover:border-white/30
@@ -101,7 +104,7 @@ export const MinimalistDesign = ({
             "
           >
             <Eye className="h-4 w-4 group-hover:scale-110 transition-transform duration-200" />
-            <span>VER ENTRADAS ({tickets.length})</span>
+            <span>{t('view.tickets')} ({tickets.length})</span>
           </motion.button>
 
           {/* Botón Ver Orden */}
@@ -118,7 +121,7 @@ export const MinimalistDesign = ({
             onClick={onViewOrder}
             className="
               group
-              w-full py-4 px-6
+              w-full py-3 px-5 md:py-4 md:px-6
               bg-white/2 hover:bg-white/6
               backdrop-blur-sm
               border border-white/10 hover:border-white/25
@@ -131,7 +134,7 @@ export const MinimalistDesign = ({
             "
           >
             <Receipt className="h-4 w-4 group-hover:scale-110 transition-transform duration-200" />
-            <span>VER MI ORDEN</span>
+            <span>{t('view.order')}</span>
           </motion.button>
 
           {/* Botón Soporte */}
@@ -148,7 +151,7 @@ export const MinimalistDesign = ({
             onClick={onContactSupport}
             className="
               group
-              w-full py-4 px-6
+              w-full py-3 px-5 md:py-4 md:px-6
               bg-white/2 hover:bg-white/6
               backdrop-blur-sm
               border border-white/10 hover:border-white/25
@@ -161,7 +164,7 @@ export const MinimalistDesign = ({
             "
           >
             <MessageCircle className="h-4 w-4 group-hover:scale-110 transition-transform duration-200" />
-            <span>SOPORTE 24/7</span>
+            <span>{t('support.24')}</span>
           </motion.button>
         </div>
       </div>

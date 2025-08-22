@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 interface HeroSectionProps {
   eventName?: string
@@ -32,12 +33,13 @@ const logoVariants = {
 
 
 export const HeroSection = ({ className = '' }: Omit<HeroSectionProps, 'eventName'>) => {
+  const { t } = useLanguage()
   return (
     <motion.div
       variants={heroVariants}
       initial="hidden"
       animate="visible"
-      className={`text-center py-12 ${className}`}
+      className={`text-center py-6 md:py-12 ${className}`}
     >
       {/* User Greeting */}
       <motion.div
@@ -45,10 +47,10 @@ export const HeroSection = ({ className = '' }: Omit<HeroSectionProps, 'eventNam
         className="mb-8 text-center"
       >
         <h2 className="text-xl font-semibold text-white mb-2">
-          ¡Hola, Juan! 👋
+          ¡{t('hello')}, Juan! 👋
         </h2>
         <p className="text-white/70 text-sm">
-          Tus entradas están listas para descargar
+          {t('tickets.ready.download')}
         </p>
       </motion.div>
 

@@ -26,22 +26,24 @@ export const WalletContainer = ({ children, className = '' }: WalletContainerPro
       animate="visible"
       className={`
         max-w-lg mx-auto w-full
+        md:min-h-0
+        flex flex-col
         bg-white/5 backdrop-blur-2xl
         border border-white/10
-        rounded-3xl
-        p-8
+        rounded-3xl md:rounded-3xl rounded-t-3xl md:rounded-b-3xl
+        p-4 md:p-8
         shadow-2xl shadow-black/20
         relative
         before:absolute before:inset-0 
         before:bg-gradient-to-br before:from-white/10 before:to-transparent 
-        before:rounded-3xl before:pointer-events-none
+        before:rounded-3xl md:before:rounded-3xl before:rounded-t-3xl md:before:rounded-b-3xl before:pointer-events-none
         after:absolute after:inset-0 
         after:bg-gradient-to-t after:from-black/10 after:to-transparent 
-        after:rounded-3xl after:pointer-events-none
+        after:rounded-3xl md:after:rounded-3xl after:rounded-t-3xl md:after:rounded-b-3xl after:pointer-events-none
         ${className}
       `}
     >
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col h-full justify-center md:justify-start">
         {children}
       </div>
     </motion.div>

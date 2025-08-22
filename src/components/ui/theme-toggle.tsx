@@ -1,8 +1,10 @@
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '@/contexts/ThemeContext'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+  const { t } = useLanguage()
 
   const toggleTheme = () => {
     if (theme === 'light') {
@@ -17,7 +19,7 @@ export function ThemeToggle() {
   }
 
   const getLabel = () => {
-    return theme === 'light' ? 'Modo claro' : 'Modo oscuro'
+    return theme === 'light' ? t('light.mode') : t('dark.mode')
   }
 
   return (

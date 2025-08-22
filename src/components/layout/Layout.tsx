@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { AuroraBackground } from '../ui/aurora-background'
 import { ThemeToggle } from '../ui/theme-toggle'
 import { HelpButton } from '../ui/help-button'
+import { LanguageToggle } from '../ui/language-toggle'
 
 interface LayoutProps {
   children: ReactNode
@@ -40,6 +41,7 @@ export const Layout = ({ children, className = '', showAurora = true }: LayoutPr
           />
           <div className="flex items-center gap-3">
             <HelpButton />
+            <LanguageToggle />
             <ThemeToggle />
           </div>
         </div>
@@ -83,12 +85,13 @@ export const Layout = ({ children, className = '', showAurora = true }: LayoutPr
         />
         <div className="flex items-center gap-3">
           <HelpButton />
+          <LanguageToggle />
           <ThemeToggle />
         </div>
       </div>
       
       {/* Subtle gradient overlay for better contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5 dark:from-black/20 dark:via-transparent dark:to-black/10 z-[1]" />
       
       {/* Content overlay */}
       <div className="relative z-10 w-full h-full overflow-y-auto">

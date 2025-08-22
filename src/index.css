@@ -30,24 +30,24 @@
 /* Light mode - Dark but lighter */
 .light {
   color-scheme: dark;
-  color: #e5e5e5;
-  background-color: #1a1a1a;
+  color: #f0f0f0;
+  background-color: #2a2a2a;
   
   /* Override hunt colors for light mode */
-  --hunt-bg: #1a1a1a;
-  --hunt-bg-mid: #2d2d2d;
-  --hunt-glass: rgba(255, 255, 255, 0.05);
-  --hunt-border: rgba(255, 255, 255, 0.12);
-  --hunt-text-primary: #e5e5e5;
-  --hunt-text-secondary: rgba(229, 229, 229, 0.7);
-  --hunt-text-tertiary: rgba(229, 229, 229, 0.9);
+  --hunt-bg: #2a2a2a;
+  --hunt-bg-mid: #404040;
+  --hunt-glass: rgba(255, 255, 255, 0.08);
+  --hunt-border: rgba(255, 255, 255, 0.15);
+  --hunt-text-primary: #f0f0f0;
+  --hunt-text-secondary: rgba(240, 240, 240, 0.8);
+  --hunt-text-tertiary: rgba(240, 240, 240, 0.95);
 }
 
 .light html, 
 .light body, 
 .light #root {
-  background-color: #1a1a1a;
-  color: #e5e5e5;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
 }
 
 html, body, #root {
