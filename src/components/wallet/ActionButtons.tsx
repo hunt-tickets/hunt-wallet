@@ -8,6 +8,10 @@ import { CardSystemDesign } from './designs/CardSystemDesign'
 import { IOSStyleDesign } from './designs/IOSStyleDesign'
 import { NeoBrutalismDesign } from './designs/NeoBrutalismDesign'
 import { GlassmorphismProDesign } from './designs/GlassmorphismProDesign'
+import { TicketVintageDesign } from './designs/TicketVintageDesign'
+import { NeonConcertDesign } from './designs/NeonConcertDesign'
+import { VipLuxuryDesign } from './designs/VipLuxuryDesign'
+import { AsymmetricDesign } from './designs/AsymmetricDesign'
 
 interface ActionButtonsProps {
   tickets: TicketData[]
@@ -70,6 +74,14 @@ export const ActionButtons = ({
         return <NeoBrutalismDesign {...commonProps} />
       case 'glass':
         return <GlassmorphismProDesign {...commonProps} />
+      case 'vintage':
+        return <TicketVintageDesign {...commonProps} />
+      case 'neon':
+        return <NeonConcertDesign {...commonProps} />
+      case 'luxury':
+        return <VipLuxuryDesign {...commonProps} />
+      case 'chaos':
+        return <AsymmetricDesign {...commonProps} />
       default:
         break
     }
