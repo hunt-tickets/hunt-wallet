@@ -79,13 +79,9 @@ export const Layout = ({ children, className = '', showAurora = true }: LayoutPr
         <img 
           src="https://db.hunt-tickets.com/storage/v1/object/public/default/logos/white_logo.png" 
           alt="Hunt Tickets"
-          className="h-8 w-auto"
+          className="h-6 sm:h-8 w-auto"
         />
         <div className="flex items-center gap-3">
-          <DesignSelector 
-            currentDesign={designStyle} 
-            onDesignChange={onDesignChange || (() => {})} 
-          />
           <HelpButton />
           <ThemeToggle />
         </div>
