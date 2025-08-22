@@ -10,17 +10,7 @@ export function DesignSelector({ currentDesign, onDesignChange }: DesignSelector
   const [isOpen, setIsOpen] = useState(false)
 
   const designs = [
-    { id: 'minimalist', name: 'Minimalista', desc: 'Elegante y espacioso' },
-    { id: 'cards', name: 'Card System', desc: 'Modular y organizado' },
-    { id: 'ios', name: 'iOS Style', desc: 'Familiar y pulido' },
-    { id: 'brutal', name: 'Neo-Brutalism', desc: 'Bold y distintivo' },
-    { id: 'glass', name: 'Glassmorphism Pro', desc: 'Futurista y sofisticado' },
-    { id: 'vintage', name: 'Ticket Vintage', desc: 'Entrada clásica con perforaciones' },
-    { id: 'neon', name: 'Neon Concert', desc: 'Vibes de concierto con luces' },
-    { id: 'luxury', name: 'VIP Luxury', desc: 'Experiencia premium dorada' },
-    { id: 'chaos', name: 'Asymmetric Chaos', desc: 'Experimental y roto' },
-    { id: 'cyber', name: 'Cyber Hero', desc: 'Terminal ciberpunk con efectos 3D' },
-    { id: 'horizon', name: 'Horizon Space', desc: 'Experiencia espacial interactiva' }
+    { id: 'minimalist', name: 'Minimalista', desc: 'Elegante, limpio y sofisticado' }
   ]
 
   return (
