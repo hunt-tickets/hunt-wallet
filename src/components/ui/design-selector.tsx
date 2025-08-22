@@ -18,7 +18,9 @@ export function DesignSelector({ currentDesign, onDesignChange }: DesignSelector
     { id: 'vintage', name: 'Ticket Vintage', desc: 'Entrada clásica con perforaciones' },
     { id: 'neon', name: 'Neon Concert', desc: 'Vibes de concierto con luces' },
     { id: 'luxury', name: 'VIP Luxury', desc: 'Experiencia premium dorada' },
-    { id: 'chaos', name: 'Asymmetric Chaos', desc: 'Experimental y roto' }
+    { id: 'chaos', name: 'Asymmetric Chaos', desc: 'Experimental y roto' },
+    { id: 'cyber', name: 'Cyber Hero', desc: 'Terminal ciberpunk con efectos 3D' },
+    { id: 'horizon', name: 'Horizon Space', desc: 'Experiencia espacial interactiva' }
   ]
 
   return (

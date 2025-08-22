@@ -12,6 +12,8 @@ import { TicketVintageDesign } from './designs/TicketVintageDesign'
 import { NeonConcertDesign } from './designs/NeonConcertDesign'
 import { VipLuxuryDesign } from './designs/VipLuxuryDesign'
 import { AsymmetricDesign } from './designs/AsymmetricDesign'
+import { CyberHeroDesign } from './designs/CyberHeroDesign'
+import { HorizonSpaceDesign } from './designs/HorizonSpaceDesign'
 
 interface ActionButtonsProps {
   tickets: TicketData[]
@@ -82,6 +84,10 @@ export const ActionButtons = ({
         return <VipLuxuryDesign {...commonProps} />
       case 'chaos':
         return <AsymmetricDesign {...commonProps} />
+      case 'cyber':
+        return <CyberHeroDesign {...commonProps} />
+      case 'horizon':
+        return <HorizonSpaceDesign {...commonProps} />
       default:
         break
     }
