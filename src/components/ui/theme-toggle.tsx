@@ -1,44 +1,28 @@
-import { Moon, Sun, Monitor } from 'lucide-react'
+import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
-  const cycleTheme = () => {
+  const toggleTheme = () => {
     if (theme === 'light') {
       setTheme('dark')
-    } else if (theme === 'dark') {
-      setTheme('system')
     } else {
       setTheme('light')
     }
   }
 
   const getIcon = () => {
-    switch (theme) {
-      case 'light':
-        return <Sun className="h-5 w-5" />
-      case 'dark':
-        return <Moon className="h-5 w-5" />
-      default:
-        return <Monitor className="h-5 w-5" />
-    }
+    return theme === 'light' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />
   }
 
   const getLabel = () => {
-    switch (theme) {
-      case 'light':
-        return 'Modo claro'
-      case 'dark':
-        return 'Modo oscuro'
-      default:
-        return 'Modo sistema'
-    }
+    return theme === 'light' ? 'Modo claro' : 'Modo oscuro'
   }
 
   return (
     <button
-      onClick={cycleTheme}
+      onClick={toggleTheme}
       className="
         inline-flex items-center justify-center gap-2
         px-4 py-2

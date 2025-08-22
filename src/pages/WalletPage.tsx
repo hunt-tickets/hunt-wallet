@@ -28,7 +28,6 @@ export const WalletPage = () => {
   const [showTicketsModal, setShowTicketsModal] = useState(false)
   const [showSupportModal, setShowSupportModal] = useState(false)
   const [showOrderModal, setShowOrderModal] = useState(false)
-  const [designStyle, setDesignStyle] = useState('current')
 
   useEffect(() => {
     // Add some meta tags for better mobile experience
@@ -76,10 +75,7 @@ export const WalletPage = () => {
   }
 
   return (
-    <Layout 
-      designStyle={designStyle} 
-      onDesignChange={setDesignStyle}
-    >
+    <Layout>
       <motion.div
         variants={pageVariants}
         initial="initial"
@@ -97,7 +93,6 @@ export const WalletPage = () => {
             onViewTickets={() => setShowTicketsModal(true)}
             onContactSupport={() => setShowSupportModal(true)}
             onViewOrder={() => setShowOrderModal(true)}
-            designStyle={designStyle}
           />
         </WalletContainer>
         

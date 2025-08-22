@@ -3,14 +3,11 @@ import { motion } from 'framer-motion'
 import { AuroraBackground } from '../ui/aurora-background'
 import { ThemeToggle } from '../ui/theme-toggle'
 import { HelpButton } from '../ui/help-button'
-import { DesignSelector } from '../ui/design-selector'
 
 interface LayoutProps {
   children: ReactNode
   className?: string
   showAurora?: boolean
-  designStyle?: string
-  onDesignChange?: (design: string) => void
 }
 
 const layoutVariants = {
@@ -30,7 +27,7 @@ const layoutVariants = {
   }
 }
 
-export const Layout = ({ children, className = '', showAurora = true, designStyle = 'current', onDesignChange }: LayoutProps) => {
+export const Layout = ({ children, className = '', showAurora = true }: LayoutProps) => {
   if (showAurora) {
     return (
       <AuroraBackground className={className}>
@@ -39,13 +36,9 @@ export const Layout = ({ children, className = '', showAurora = true, designStyl
           <img 
             src="https://db.hunt-tickets.com/storage/v1/object/public/default/logos/white_logo.png" 
             alt="Hunt Tickets"
-            className="h-8 w-auto"
+            className="h-6 sm:h-8 w-auto"
           />
           <div className="flex items-center gap-3">
-            <DesignSelector 
-              currentDesign={designStyle} 
-              onDesignChange={onDesignChange || (() => {})} 
-            />
             <HelpButton />
             <ThemeToggle />
           </div>
@@ -72,12 +65,14 @@ export const Layout = ({ children, className = '', showAurora = true, designStyl
       exit="exit"
       className={`
         h-screen w-screen
-        bg-gradient-to-br from-hunt-bg via-gray-900 to-hunt-bg
-        text-hunt-text-primary
         relative overflow-hidden
         fixed inset-0
         ${className}
       `}
+      style={{
+        background: `linear-gradient(to bottom right, var(--hunt-bg), var(--hunt-bg-mid), var(--hunt-bg))`,
+        color: 'var(--hunt-text-primary)'
+      }}
     >
       {/* Top Navigation */}
       <div className="fixed top-6 left-6 right-6 z-50 flex justify-between items-center">
